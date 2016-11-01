@@ -9,5 +9,6 @@ public class Controller {
     public Button okLogin;
 
     public void clickbutton(ActionEvent actionEvent) {
+        System.out.println("you are now logged in");
     }
 }
