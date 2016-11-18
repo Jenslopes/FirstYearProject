@@ -20,7 +20,6 @@ public class Controller {
     BusinessLogic BL = new BusinessLogic();
 
     public void userLogin() {
-
         switch (BL.fetchUsers(user.getText(), pass.getText())) {
             case -1:
                 InfoBox.info("Ikke logget ind");
@@ -37,6 +36,16 @@ public class Controller {
                 break;
             case 1:
                 try {
+                    Parent root = FXMLLoader.load(getClass().getResource("../Contractor.fxml"));
+                    Stage stage = (Stage) user.getScene().getWindow();
+                    stage.setScene(new Scene(root));
+                    stage.show();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                break;
+            case 2:
+                try {
                     Parent root = FXMLLoader.load(getClass().getResource("../User.fxml"));
                     Stage stage = (Stage) user.getScene().getWindow();
                     stage.setScene(new Scene(root));
@@ -46,5 +55,10 @@ public class Controller {
                 }
                 break;
         }
+    }
+
+    public void cancelLogin(){
+        Stage stage = (Stage) user.getScene().getWindow();
+        stage.close();
     }
 }

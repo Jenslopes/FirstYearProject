@@ -13,7 +13,7 @@
       <ButtonBar layoutX="469.0" layoutY="314.0" prefHeight="40.0" prefWidth="60.0" />
       <ButtonBar layoutX="231.0" layoutY="314.0" prefHeight="40.0" prefWidth="200.0" />
     <Button layoutX="167.0" layoutY="243.0" mnemonicParsing="false" onAction="#userLogin" text="OK" textOverrun="CLIP" />
-    <Button layoutX="264.0" layoutY="243.0" mnemonicParsing="false" text="Cancel" />
+    <Button layoutX="264.0" layoutY="243.0" mnemonicParsing="false" onAction="#cancelLogin" text="Cancel" />
       <TextField fx:id="user" layoutX="167.0" layoutY="122.0" promptText="Username" />
       <PasswordField fx:id="pass" layoutX="167.0" layoutY="178.0" promptText="Password" />
       <Text layoutX="224.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Log In" />
