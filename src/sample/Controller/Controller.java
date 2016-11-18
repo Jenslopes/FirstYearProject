@@ -17,58 +17,34 @@ public class Controller {
     private TextField user;
     @FXML
     private TextField pass;
+    BusinessLogic BL = new BusinessLogic();
 
     public void userLogin() {
-        BusinessLogic cr = new BusinessLogic();
-        int login = cr.fetchUsers(user.getText(), pass.getText());
 
-        switch (login) {
+        switch (BL.fetchUsers(user.getText(), pass.getText())) {
             case -1:
                 InfoBox.info("Ikke logget ind");
+                break;
             case 0:
                 try {
-                    Parent root = FXMLLoader.load(getClass().getResource("Admin.fxml"));
+                    Parent root = FXMLLoader.load(getClass().getResource("../Admin.fxml"));
                     Stage stage = (Stage) user.getScene().getWindow();
                     stage.setScene(new Scene(root));
                     stage.show();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+                break;
             case 1:
                 try {
-                    Parent root = FXMLLoader.load(getClass().getResource("User.fxml"));
+                    Parent root = FXMLLoader.load(getClass().getResource("../User.fxml"));
                     Stage stage = (Stage) user.getScene().getWindow();
                     stage.setScene(new Scene(root));
                     stage.show();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+                break;
         }
-        /*
-        if(ans == 0) {
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("Admin.fxml"));
-                Stage stage = (Stage) user.getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.show();
-            }
-            catch(Exception e){
-
-            }
-        }
-
-        if(ans == 1){
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("User.fxml"));
-                Stage stage = (Stage) user.getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.show();
-            }
-            catch(Exception e){
-
-            }
-        }
-        if(ans == -1) InfoBox.info("Ikke logget ind");
-        */
     }
 }
