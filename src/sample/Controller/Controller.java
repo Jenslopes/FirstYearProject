@@ -24,35 +24,11 @@ public class Controller {
             case -1:
                 InfoBox.info("Ikke logget ind");
                 break;
-            case 0:
-                try {
-                    Parent root = FXMLLoader.load(getClass().getResource("../Admin.fxml"));
-                    Stage stage = (Stage) user.getScene().getWindow();
-                    stage.setScene(new Scene(root));
-                    stage.show();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+            case 0: BL.setScene((Stage) user.getScene().getWindow(), "../Admin.fxml");
                 break;
-            case 1:
-                try {
-                    Parent root = FXMLLoader.load(getClass().getResource("../Contractor.fxml"));
-                    Stage stage = (Stage) user.getScene().getWindow();
-                    stage.setScene(new Scene(root));
-                    stage.show();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+            case 1: BL.setScene((Stage) user.getScene().getWindow(), "../Contractor.fxml");
                 break;
-            case 2:
-                try {
-                    Parent root = FXMLLoader.load(getClass().getResource("../User.fxml"));
-                    Stage stage = (Stage) user.getScene().getWindow();
-                    stage.setScene(new Scene(root));
-                    stage.show();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+            case 2: BL.setScene((Stage) user.getScene().getWindow(), "../User.fxml");
                 break;
         }
     }
